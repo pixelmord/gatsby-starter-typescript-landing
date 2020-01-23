@@ -1,8 +1,8 @@
 {
-  "name": "@goblindegook/gatsby-starter-typescript",
-  "description": "A Gatsby starter the way I like it.",
-  "version": "1.0.0",
-  "author": "Luís Rodrigues <hello@goblindegook.com>",
+  "name": "@pixelmord/gatsby-starter-typescript-landing",
+  "description": "A Gatsby starter with typescript and theme-ui for creating landing pages and a blog.",
+  "version": "0.0.0-semantically-released",
+  "author": "Andreas Adam <andreas.adam@composableweb.com>",
   "dependencies": {
     "@emotion/core": "^10.0.4",
     "@emotion/styled": "^10.0.4",
@@ -74,17 +74,17 @@
     "@types/react-helmet": "^5.0.5",
     "@types/typography": "^0.16.0",
     "@types/typography-breakpoint-constants": "^0.16.0",
-    "@typescript-eslint/eslint-plugin": "^2.0.0",
-    "@typescript-eslint/parser": "^2.0.0",
-    "eslint": "^6.0.1",
-    "eslint-config-prettier": "^6.0.0",
+    "@typescript-eslint/eslint-plugin": "^2.17.0",
+    "@typescript-eslint/parser": "^2.17.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.9.0",
     "eslint-config-standard": "^14.0.0",
     "eslint-plugin-import": "^2.18.0",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-node": "^11.0.0",
-    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-react": "^7.14.2",
+    "eslint-plugin-react": "^7.18.0",
     "eslint-plugin-react-hooks": "^2.1.2",
     "eslint-plugin-standard": "^4.0.0",
     "husky": "^3.0.0",
@@ -99,15 +99,19 @@
   "keywords": [
     "gatsby",
     "markdown",
+    "theme-ui",
     "typescript"
   ],
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "format": "prettier --write '{__mocks__,src,test}/**/*.{ts,tsx}' '*.js'",
+    "type-check": "tsc",
+    "format": "prettier --write '{__mocks__,src,test}/**/*.{js,ts,tsx}' '*.js'",
     "lint": "eslint '{__mocks__,src,test}/**/*.{js,ts,tsx}'",
-    "test": "jest"
+    "test": "jest",
+    "presem": "yarn build",
+    "sem": "semantic-release"
   },
   "husky": {
     "hooks": {
@@ -160,6 +164,24 @@
       "lcov",
       "text",
       "html"
+    ]
+  },
+  "release": {
+    "branch": "master",
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/changelog",
+      "@semantic-release/github",
+      [
+        "@semantic-release/git",
+        {
+          "assets": [
+            "CHANGELOG.md"
+          ],
+          "message": "chore(release): ${nextRelease.version} \n\n${nextRelease.notes}"
+        }
+      ]
     ]
   }
 }

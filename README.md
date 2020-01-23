@@ -1,10 +1,10 @@
-# gatsby-starter-typescript
+# gatsby-starter-typescript-landing
 
-[![Build Status](https://travis-ci.org/goblindegook/gatsby-starter-typescript.svg?branch=master)](https://travis-ci.org/goblindegook/gatsby-starter-typescript)
+A Gatsby starter using [TypeScript](https://www.typescriptlang.org) and [theme-ui](https://theme-ui.com).
 
-A Gatsby starter using [TypeScript](https://www.typescriptlang.org) and [emotion](https://emotion.sh).
+This starter was started with [gatsby-starter-typescript](https://github.com/goblindegook/gatsby-starter-typescript) by [goblindegook](https://github.com/goblindegook)
 
-View the [demo site](https://gatsby-starter-typescript.netlify.com).
+View the [demo site](https://gatsby-starter-typescript-landing.netlify.com).
 
 ## Install
 
@@ -17,7 +17,7 @@ $ npm install --global gatsby-cli
 And run from your CLI:
 
 ```sh
-$ gatsby new gatsby-example-site https://github.com/goblindegook/gatsby-starter-typescript
+$ gatsby new gatsby-example-site https://github.com/pixelmord/gatsby-starter-typescript-landing
 ```
 
 Then you can run it by:

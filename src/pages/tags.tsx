@@ -1,12 +1,12 @@
-import React from 'react'
-import { graphql, Link } from 'gatsby'
-import Helmet from 'react-helmet'
-import { kebabCase } from 'lodash'
-import { TagListPageQuery } from 'generated/types/gatsby'
-import { Layout } from '../components/Layout'
+import React from 'react';
+import { graphql, Link } from 'gatsby';
+import Helmet from 'react-helmet';
+import { kebabCase } from 'lodash';
+import { TagListPageQuery } from 'generated/types/gatsby';
+import { Layout } from '../components/Layout';
 
 interface TagsPageProps {
-  readonly data: TagListPageQuery
+  readonly data: TagListPageQuery;
 }
 
 const TagsPage = ({ data }: TagsPageProps) => {
@@ -24,10 +24,10 @@ const TagsPage = ({ data }: TagsPageProps) => {
         </ul>
       </div>
     </Layout>
-  )
-}
+  );
+};
 
-export default TagsPage
+export default TagsPage;
 
 export const query = graphql`
   query TagListPage {
@@ -38,4 +38,4 @@ export const query = graphql`
       }
     }
   }
-`
+`;

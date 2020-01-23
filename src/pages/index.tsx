@@ -1,6 +1,6 @@
-import React from 'react'
-import { Link } from 'gatsby'
-import { Layout } from '../components/Layout'
+import React from 'react';
+import { Link } from 'gatsby';
+import { Layout } from '../components/Layout';
 
 export const IndexPage = () => (
   <>
@@ -14,12 +14,12 @@ export const IndexPage = () => (
       <Link to="/all/">See content generated from Markdown files</Link>
     </p>
   </>
-)
+);
 
 const LayoutIndexPage = () => (
   <Layout>
     <IndexPage />
   </Layout>
-)
+);
 
-export default LayoutIndexPage
+export default LayoutIndexPage;

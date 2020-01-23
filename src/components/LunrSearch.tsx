@@ -1,28 +1,28 @@
-import React, { useState } from 'react'
-import { useOutside } from '@pacote/react-use-outside'
-import { css } from '@emotion/core'
-import { Link } from 'gatsby'
-import lunr from 'lunr'
+import React, { useState } from 'react';
+import { useOutside } from '@pacote/react-use-outside';
+import { css } from '@emotion/core';
+import { Link } from 'gatsby';
+import lunr from 'lunr';
 
 declare global {
   interface Window {
     __LUNR__: {
       readonly [language: string]: {
-        readonly index: lunr.Index
+        readonly index: lunr.Index;
         readonly store: {
-          readonly [key: string]: any
-        }
-      }
-    }
+          readonly [key: string]: any;
+        };
+      };
+    };
   }
 }
 
 interface SearchResult extends lunr.Index.Result {
-  readonly title: string
-  readonly path: string
+  readonly title: string;
+  readonly path: string;
 }
 
-const accent = '#ff5700'
+const accent = '#ff5700';
 
 const styles = {
   wrapper: css`
@@ -64,26 +64,26 @@ const styles = {
     width: 1px;
     height: 1px;
     overflow: hidden;
-  `
-}
+  `,
+};
 
 const search = (query: string): readonly SearchResult[] => {
-  const { index, store } = window.__LUNR__ && window.__LUNR__.en
-  return query ? index.search(query).map(({ ref }) => store[ref]) : []
-}
+  const { index, store } = window.__LUNR__ && window.__LUNR__.en;
+  return query ? index.search(query).map(({ ref }) => store[ref]) : [];
+};
 
 interface LunrSearchProps {
-  readonly limit?: number
+  readonly limit?: number;
 }
 
 export const LunrSearch = ({ limit }: LunrSearchProps) => {
-  const [query, setQuery] = useState('')
-  const [results, setResults] = useState<readonly SearchResult[]>([])
-  const [isActive, setActive] = useState(false)
+  const [query, setQuery] = useState('');
+  const [results, setResults] = useState<readonly SearchResult[]>([]);
+  const [isActive, setActive] = useState(false);
 
   const ref = useOutside<HTMLDivElement>('click', () => {
-    setActive(false)
-  })
+    setActive(false);
+  });
 
   return (
     <div ref={ref} css={styles.wrapper}>
@@ -94,9 +94,9 @@ export const LunrSearch = ({ limit }: LunrSearchProps) => {
           css={styles.input}
           value={query}
           onChange={event => {
-            setQuery(event.target.value)
-            setResults(search(event.target.value))
-            setActive(true)
+            setQuery(event.target.value);
+            setResults(search(event.target.value));
+            setActive(true);
           }}
         />
       </label>
@@ -116,5 +116,5 @@ export const LunrSearch = ({ limit }: LunrSearchProps) => {
         </ul>
       ) : null}
     </div>
-  )
-}
+  );
+};

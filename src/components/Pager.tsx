@@ -1,15 +1,15 @@
-import React from 'react'
-import styled from '@emotion/styled'
-import { Link } from 'gatsby'
+import React from 'react';
+import styled from '@emotion/styled';
+import { Link } from 'gatsby';
 
 interface PagerProps {
-  readonly prefix: string
-  readonly page: number
-  readonly total: number
+  readonly prefix: string;
+  readonly page: number;
+  readonly total: number;
 }
 
 function pageUrl(prefix: string, page: number): string {
-  return page <= 1 ? `/${prefix}` : `/${prefix}/${page}`
+  return page <= 1 ? `/${prefix}` : `/${prefix}/${page}`;
 }
 
 const NavLink = styled(Link)`
@@ -25,11 +25,11 @@ const NavLink = styled(Link)`
   &:hover {
     color: #fff;
   }
-`
+`;
 
 export const Pager = ({ prefix, page, total }: PagerProps) => (
   <div>
     {page > 1 && <NavLink to={pageUrl(prefix, page - 1)}>Previous</NavLink>}
     {page < total && <NavLink to={pageUrl(prefix, page + 1)}>Next</NavLink>}
   </div>
-)
+);

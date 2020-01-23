@@ -1,21 +1,21 @@
-import React from 'react'
-import { Link, graphql } from 'gatsby'
-import Helmet from 'react-helmet'
-import { TagPageQuery, TagPageQueryVariables } from 'generated/types/gatsby'
-import { ContentList } from '../components/ContentList'
-import { Pager } from '../components/Pager'
-import { Layout } from '../components/Layout'
-import { ArchivePageContext } from '../context'
+import React from 'react';
+import { Link, graphql } from 'gatsby';
+import Helmet from 'react-helmet';
+import { TagPageQuery, TagPageQueryVariables } from 'generated/types/gatsby';
+import { ContentList } from '../components/ContentList';
+import { Pager } from '../components/Pager';
+import { Layout } from '../components/Layout';
+import { ArchivePageContext } from '../context';
 
 interface TagTemplateProps {
-  readonly data: TagPageQuery
+  readonly data: TagPageQuery;
 
-  readonly pageContext: ArchivePageContext & TagPageQueryVariables
+  readonly pageContext: ArchivePageContext & TagPageQueryVariables;
 }
 
 const TagTemplate = (props: TagTemplateProps) => {
-  const { edges } = props.data.allMdx
-  const { page, prefix, pageTotal, tag } = props.pageContext
+  const { edges } = props.data.allMdx;
+  const { page, prefix, pageTotal, tag } = props.pageContext;
 
   return (
     <Layout>
@@ -26,10 +26,10 @@ const TagTemplate = (props: TagTemplateProps) => {
       <hr />
       <Link to="/tags">All tags</Link>
     </Layout>
-  )
-}
+  );
+};
 
-export default TagTemplate
+export default TagTemplate;
 
 export const query = graphql`
   query TagPage($tag: String!, $skip: Int!, $limit: Int!) {
@@ -50,4 +50,4 @@ export const query = graphql`
       }
     }
   }
-`
+`;

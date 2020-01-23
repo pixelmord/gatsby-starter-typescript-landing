@@ -1,8 +1,8 @@
-import React from 'react'
-import styled from '@emotion/styled'
-import { css } from '@emotion/core'
-import { Link } from 'gatsby'
-import { LunrSearch } from './LunrSearch'
+import React from 'react';
+import styled from '@emotion/styled';
+import { css } from '@emotion/core';
+import { Link } from 'gatsby';
+import { LunrSearch } from './LunrSearch';
 
 const style = {
   container: css`
@@ -20,8 +20,8 @@ const style = {
   title: css`
     margin: 0;
     display: inline-block;
-  `
-}
+  `,
+};
 
 const TitleLink = styled(Link)`
   color: #fff;
@@ -30,10 +30,10 @@ const TitleLink = styled(Link)`
   &:hover {
     color: #fff;
   }
-`
+`;
 
 interface HeaderProps {
-  readonly title: string
+  readonly title: string;
 }
 
 export const Header = ({ title }: HeaderProps) => (
@@ -45,4 +45,4 @@ export const Header = ({ title }: HeaderProps) => (
       <LunrSearch limit={10} />
     </div>
   </div>
-)
+);

@@ -1,20 +1,20 @@
-import React from 'react'
-import { graphql } from 'gatsby'
-import Helmet from 'react-helmet'
-import { SinglePageQuery } from 'generated/types/gatsby'
-import { Layout } from '../components/Layout'
+import React from 'react';
+import { graphql } from 'gatsby';
+import Helmet from 'react-helmet';
+import { SinglePageQuery } from 'generated/types/gatsby';
+import { Layout } from '../components/Layout';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const MDXRenderer = require('gatsby-plugin-mdx/mdx-renderer')
+const MDXRenderer = require('gatsby-plugin-mdx/mdx-renderer');
 
 interface ContentTemplateProps {
-  readonly data: SinglePageQuery
+  readonly data: SinglePageQuery;
 }
 
 const ContentTemplate = ({ data }: ContentTemplateProps) => {
   const {
-    mdx: { frontmatter, body }
-  } = data
+    mdx: { frontmatter, body },
+  } = data;
 
   return (
     <Layout>
@@ -23,10 +23,10 @@ const ContentTemplate = ({ data }: ContentTemplateProps) => {
       <h3>{frontmatter.date}</h3>
       <MDXRenderer>{body}</MDXRenderer>
     </Layout>
-  )
-}
+  );
+};
 
-export default ContentTemplate
+export default ContentTemplate;
 
 export const query = graphql`
   query SinglePage($path: String!) {
@@ -39,4 +39,4 @@ export const query = graphql`
       }
     }
   }
-`
+`;
